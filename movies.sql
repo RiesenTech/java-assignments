@@ -9,19 +9,11 @@ CREATE TABLE IF NOT EXISTS movies.users (
     occupation TEXT,
     zipcode TEXT 
     );
-LOAD DATA LOCAL INFILE 'u.user' INTO TABLE movies.users FIELDS TERMINATED BY '|';
-
-
 CREATE TABLE IF NOT EXISTS movies.movies (
     itemID INT PRIMARY KEY NOT NULL,
     title TEXT,
     releaseDate DATE
     );
-LOAD DATA LOCAL INFILE 'u.item' INTO TABLE movies.movies FIELDS TERMINATED BY '|'
-(itemID, title, @var3)
-set releaseDate = STR_TO_DATE(@var3,'%d-%M-%Y');
-
-
 CREATE TABLE IF NOT EXISTS movies.ratings (
     userID INT ,
     itemID INT ,
@@ -30,6 +22,3 @@ CREATE TABLE IF NOT EXISTS movies.ratings (
     FOREIGN KEY (userID) REFERENCES users(userID),
     FOREIGN KEY (itemID) REFERENCES movies(itemID)
     );
-
-LOAD DATA LOCAL INFILE 'u.data'
-INTO TABLE movies.ratings;
