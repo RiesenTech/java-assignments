@@ -1,0 +1,28 @@
+################################IMPORT TASKS##########################################
+
+Q1) write a command to list all sqoop tables
+Q2)write a sqoop command to import ratings table to target location "/user/movies/ratings/" 
+a) use 1 mapper and sqoop it as text file
+b) use multiple mappers and sqoop it as parquet and avro format files (Hint : use --split-by "coloumn name")
+Q3) write a sqoop command to sqoop data into already existing folder(hdfs folder) (Hint: try --delete-target-dir)
+Q4)write a sqoop command to sqoop data from ratings table with ratingid <600
+Q5)write a sqoop command to sqoop userid,title releasedate,ratings from ratings and movies
+Q6) typacast userid as string and sqoop the data
+Q7)Sqoop movies table as hive table (Hint : use --hiveimport)
+Q8)sqoop-import-all-tables and check how the folders are created in hadoop hdfs
+Q9) use --validate and check the output
+###############################Incremental imports######################################
+
+create employee table (empid,empname,age)
+insert 5 rows with id 1,2,3,4,5
+
+Q1) sqoop employee table
+--insert 6,7,8 records 
+Q2) sqoop import incremental append employee table using last_value as 5.
+
+################################EXPORT TASKS##########################################
+Q1) export /user/movies/ratings/ to ratings table
+Q2) Delete data from ratings table in mysql and export only   userid,rating from  /user/movies/ratings/  to ratings
+q3) export diff file formats(avro,csv,parquet) to ratings table
+
+
